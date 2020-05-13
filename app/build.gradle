@@ -12,6 +12,7 @@ android {
         versionName "1.0"
         resConfigs "he" // And any other languages you support
         multiDexEnabled true
+        flavorDimensions "app"
         vectorDrawables.useSupportLibrary = true // This line here
         javaCompileOptions {
             annotationProcessorOptions {
