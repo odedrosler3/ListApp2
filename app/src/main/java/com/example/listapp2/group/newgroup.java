@@ -256,18 +256,17 @@ public class newgroup extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     for (int i = 0; i < contactlist.size(); i++) {
                                         phone = contactlist.get(i).getPhonenumber();
-                                            db.collection("groups").document(phone).update("groups", FieldValue.arrayUnion("group" + id));
-                                         //   Map<String, Object> docData = new HashMap<>();
-                                           // docData.put("groups", Arrays.asList("group" + id));
-                                           // db.collection("groups").document(phone).set(docData, SetOptions.merge());
+                                          Map<String, Object> docData = new HashMap<>();
+                                         docData.put("groups", FieldValue.arrayUnion("group" + id));
+                                        db.collection("groups").document(phone).set(docData, SetOptions.merge());
+                                           // db.collection("groups").document(phone).set("groups", FieldValue.arrayUnion("group" + id));
+
 
                                     }
                                     }
                                 }
 
                                });
-
-
                         if (extgroupid == null) {
                             Intent in = new Intent(getApplicationContext(), com.example.listapp2.itemlist.itemlist.class);
                             in.putExtra("idgroup", "group" + id);
